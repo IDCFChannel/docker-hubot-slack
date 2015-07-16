@@ -1,0 +1,22 @@
+npm:
+  build: .
+  volumes:
+    - /etc/localtime:/etc/localtime:ro
+  ports:
+    - 9999:9999
+  environment:
+    - PORT=9999
+    - REDIS_URL=redis://redis:6379
+    - HUBOT_LOG_LEVEL=debug
+    - HUBOT_SLACK_TOKEN=
+    - MQTT_HOST=
+    - MQTT_USER=
+    - MQTT_PASSWORD=
+  links:
+    - redis
+  command: ./bin/hubot -a slack
+redis:
+  image: redis
+  volumes:
+    - ./redis:/data
+    - /etc/localtime:/etc/localtime:ro
