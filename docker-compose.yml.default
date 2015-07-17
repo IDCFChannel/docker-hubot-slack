@@ -10,8 +10,8 @@ npm:
     - HUBOT_LOG_LEVEL=debug
     - HUBOT_SLACK_TOKEN=
     - MQTT_HOST=
-    - MQTT_USER=
-    - MQTT_PASSWORD=
+    - ACTION_UUID=
+    - ACTION_TOKEN=
   links:
     - redis
   command: ./bin/hubot -a slack
