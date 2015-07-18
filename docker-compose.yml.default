@@ -1,11 +1,12 @@
 npm:
   build: .
   volumes:
+    - ./scripts:/app/scripts
     - /etc/localtime:/etc/localtime:ro
   ports:
-    - 9999:9999
+    - 8089:8089
   environment:
-    - PORT=9999
+    - PORT=8089
     - REDIS_URL=redis://redis:6379
     - HUBOT_LOG_LEVEL=debug
     - HUBOT_SLACK_TOKEN=

@@ -29,17 +29,17 @@ units =
     '気圧': 'hPa'
 
 module.exports = (robot) ->
-    robot.respond  /(気温|湿度|気圧)を(おしえて|教えて)$/i, (msg) ->
-        sensor = msg.match[1]
+    robot.respond  /(気温|湿度|気圧)を(おしえて|教えて)$/i, (res) ->
+        sensor = res.match[1]
         answer = if sensor_data
             retval = sensor_data[commands[sensor]] + ' ' + units[sensor]
             sensor + 'は ' + retval + ' です。'
         else
             'データが取れません。:imp:'
-        msg.send answer
+        res.send answer
 
-    robot.respond /ライト(つけて|付けて|けして|消して)$/i, (msg) ->
-        on_off = switch msg.match[1]
+    robot.respond /ライト(つけて|付けて|けして|消して)$/i, (res) ->
+        on_off = switch res.match[1]
             when 'つけて', '付けて' then 'on'
             when 'けして', '消して' then 'off'
             else 'on'
@@ -51,4 +51,4 @@ module.exports = (robot) ->
                 led: on_off
         client.publish 'message', JSON.stringify(message)
 
-        msg.send answer + ':flashlight:'
+        res.send answer + ':flashlight:'
