@@ -38,7 +38,7 @@ module.exports = (robot) ->
             'データが取れません。:imp:'
         res.send answer
 
-    robot.respond /ライト(つけて|付けて|けして|消して)$/i, (res) ->
+    robot.respond /ライトを(つけて|付けて|けして|消して)$/i, (res) ->
         on_off = switch res.match[1]
             when 'つけて', '付けて' then 'on'
             when 'けして', '消して' then 'off'
