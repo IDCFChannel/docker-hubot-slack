@@ -4,13 +4,13 @@ mqtt = require 'mqtt'
 
 opts =
     host: process.env.MQTT_HOST
-    username: process.env.ACTION_UUID
-    password: process.env.ACTION_TOKEN
+    username: process.env.ACTION_1_UUID
+    password: process.env.ACTION_1_TOKEN
     protocolId: 'MQIsdp'
     protocolVersion: 3
 
 client = mqtt.connect opts
-client.subscribe process.env.ACTION_UUID
+client.subscribe process.env.ACTION_1_UUID
 
 sensor_data = ''
 
@@ -46,7 +46,7 @@ module.exports = (robot) ->
         answer = if on_off == 'on' then 'ピカッ。' else 'カチッ。'
 
         message =
-            devices: process.env.ACTION_UUID
+            devices: process.env.ACTION_3_UUID
             payload:
                 led: on_off
         client.publish 'message', JSON.stringify(message)
