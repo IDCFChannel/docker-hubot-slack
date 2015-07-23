@@ -43,7 +43,7 @@ module.exports = (robot) ->
             when 'つけて', '付けて' then 'led-on'
             when 'けして', '消して' then 'led-off'
             else 'led-on'
-        answer = if on_off == 'on' then 'ピカッ。' else 'カチッ。'
+        answer = if on_off == 'led-on' then 'ピカッ。' else 'カチッ。'
 
         message =
             devices: process.env.ACTION_3_UUID
