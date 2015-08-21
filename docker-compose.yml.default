@@ -1,4 +1,5 @@
 npm:
+  restart: always
   build: .
   volumes:
     - ./scripts:/app/scripts

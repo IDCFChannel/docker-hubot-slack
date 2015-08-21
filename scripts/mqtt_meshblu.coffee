@@ -16,7 +16,7 @@ sensor_data = ''
 
 client.on 'message', (topic, message) ->
     payload = JSON.parse message
-    sensor_data = payload.data
+    sensor_data = payload.data.payload
 
 commands =
     '気温': 'temperature'
